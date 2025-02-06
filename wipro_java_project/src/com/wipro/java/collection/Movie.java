@@ -1,55 +1,41 @@
 package com.wipro.java.collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
+// POJO class implementing Comparable
 class Movie implements Comparable<Movie> {
-    private String n; // Movie Name
-    private double r; // Movie Rating
-    private int y;    // Release year of the movie
+	private String name;// Movie Name Property
+	private double rating;// rating Property
+	private int year;// Year Property
 
-    // Constructor
-    public Movie(String n, double r, int y) {
-        this.n = n;
-        this.r = r;
-        this.y = y;
-    }
+	// Constructor
+	public Movie(String name, double rating, int year) {
+		this.name = name;
+		this.rating = rating;
+		this.year = year;
+	}
 
-    // Implementation of the compareTo method
-    // for sorting by rating in descending order
-    public int compareTo(Movie m) {
-        return Double.compare(m.r, this.r); // Descending order
-    }
+	// Getters
+	public String getName() {
+		return name;
+	}
 
-    // Getter methods
-    public String getName() {
-        return n;
-    }
+	public double getRating() {
+		return rating;
+	}
 
-    public double getRating() {
-        return r;
-    }
+	public int getYear() {
+		return year;
+	}
 
-    public int getYear() {
-        return y;
-    }
+	// Sorting logic: Sort by rating (lower to higher)
+	@Override
+	public int compareTo(Movie other) {
+		return Double.compare(this.rating, other.rating); // Ascending order
+	}
 
-    // Inner static class for the main method
-    public static class MovieDriver {
-        public static void main(String[] args) {
-            ArrayList<Movie> movies = new ArrayList<>();
-            movies.add(new Movie("End Game", 8.8, 2010));
-            movies.add(new Movie("Tenet", 8.6, 2014));
-            movies.add(new Movie("The Dark Knight", 9.0, 2008));
+	// toString method for printing
+	@Override
+	public String toString() {
+		return name + " (" + year + ") - Rating: " + rating;
+	}
 
-            // Sorting movies based on rating
-            Collections.sort(movies);
-
-            // Display sorted movies
-            for (Movie m : movies) {
-                System.out.println(m.getName() + " - Rating: " + m.getRating());
-            }
-        }
-    }
 }
-
