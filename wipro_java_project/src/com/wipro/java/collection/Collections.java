@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.jar.Attributes.Name;
 
 public class Collections {
 
@@ -86,4 +87,9 @@ public class Collections {
             System.out.println("Code " + entry.getKey() + ": " + entry.getValue());
         }
     }
+
+	public static void sort(List<Movie> movieList, Name name) {
+		// TODO Auto-generated method stub
+		
+	}
 }
